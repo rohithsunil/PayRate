@@ -7,6 +7,44 @@
   font-family: 'Poppins', sans-serif;
 }
 
+.hidden {
+  display: none!important;
+}
+
+.toggle-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+}
+
+.switch {
+  --inactive-bg: #a8a8a8;
+  --active-bg: #a8a8a8;
+  --size: 2rem;
+  appearance: none;
+  width: calc(var(--size) * 2.2);
+  height: var(--size);
+  display: inline-block;
+  border-radius: calc(var(--size) / 2);
+  cursor: pointer;
+  background-color: var(--inactive-bg);
+  background-image: radial-gradient(
+      circle calc(var(--size) / 2.1),
+      #fff 100%,
+      #0000 0
+    ),
+    radial-gradient(circle calc(var(--size) / 1.5), #0003 0%, #0000 100%);
+  background-repeat: no-repeat;
+  background-position: calc(var(--size) / -1.75) 0;
+  transition: background 0.2s ease-out;
+}
+.switch:checked {
+  background-color: var(--active-bg);
+  background-position: calc(var(--size) / 1.75) 0;
+}
+
+
 #logo {
   display: inline-block;
   margin: 10px; /* margin: 20px was off */
@@ -18,16 +56,32 @@
 
 body{
   display: flex;
+  flex-direction: column-reverse;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   min-height: 100vh;
   padding: 0 10px;
+  transition: 0.3s ease;
+}
+
+body.pay {
   background: #00d54b;
 }
-::selection{
+
+body.bit {
+  background: #4152d0;
+}
+
+.pay ::selection{
   color: #fff;
   background: #00d54b;
 }
+
+.bit ::selection{
+  color: #fff;
+  background: #4152d0;
+}
+
 .wrapper{
   width: 370px;
   padding: 30px;
@@ -35,7 +89,6 @@ body{
   background: #fff;
   box-shadow: 7px 7px 20px rgba(0, 0, 0, 0.05);
 }
-
 
 .wrapper header{
   font-size: 24px;
@@ -109,14 +162,27 @@ form .exchange-rate{
   font-size: 17px;
   margin: 20px 0 30px;
 }
+
 form button{
   height: 52px;
   color: #fff;
   font-size: 17px;
   cursor: pointer;
-  background: #00d54b;
   transition: 0.3s ease;
 }
-form button:hover{
+
+.pay button {
   background: #00d54b;
+}
+
+.pay button:hover{
+  background: #14b24b;
+}
+
+.bit button {
+  background: #4152d0;
+}
+
+.bit button:hover {
+  background: #5160d3;
 }
