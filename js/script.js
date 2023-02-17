@@ -3,7 +3,6 @@ const dropList = document.querySelectorAll("form select"),
 	toCurrency = document.querySelector(".to select"),
 	getButton = document.querySelector("form button");
 toggleButton = document.querySelector("#toggle");
-
 function changeCurr() {
 	if (toggleButton.checked) {
 		document.querySelector("body").classList.remove("pay");
@@ -61,7 +60,6 @@ function populateList() {
 		});
 	}
 }
-
 function loadFlag(element) {
 	for (let code in country_list) {
 		if (code == element.value) {
@@ -74,16 +72,13 @@ function loadFlag(element) {
 		}
 	}
 }
-
 window.addEventListener("load", () => {
 	changeCurr();
 });
-
 getButton.addEventListener("click", (e) => {
 	e.preventDefault(); //preventing form from submitting
 	getExchangeRate();
 });
-
 const exchangeIcon = document.querySelector("form .icon");
 exchangeIcon.addEventListener("click", () => {
 	let tempCode = fromCurrency.value; // temporary currency code of FROM drop list
@@ -93,7 +88,6 @@ exchangeIcon.addEventListener("click", () => {
 	loadFlag(toCurrency); // calling loadFlag with passing select element (toCurrency) of TO
 	getExchangeRate(); // calling getExchangeRate
 });
-
 function getExchangeRate() {
 	const amount = document.querySelector("form input");
 	const exchangeRateTxt = document.querySelector("form .exchange-rate");
@@ -104,7 +98,6 @@ function getExchangeRate() {
 		amountVal = 1;
 	}
 	exchangeRateTxt.innerText = "Getting exchange rate...";
-
 	if (toggleButton.checked) {
 		let toCryptoUrl = `https://min-api.cryptocompare.com/data/price?fsym=${fromCurrency.value}&tsyms=USD`;
 		let toCurrUrl = `https://v6.exchangerate-api.com/v6/07918a05543d669af668dab4/pair/USD/${toCurrency.value}`;

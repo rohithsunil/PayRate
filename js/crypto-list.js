@@ -1,6 +1,5 @@
 let crypto_list = {
     "BTC" : "BTC",
-    "AFN" : "AFN",
     "BTC" : "BTC",
     "BCH" : "BCH",
     "EOS" : "EOS",
